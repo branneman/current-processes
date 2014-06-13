@@ -4,7 +4,7 @@
   "description": "Get a snapshot of the currently running processes, OS-agnostic",
   "main": "current-processes.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/mocha/bin/mocha --colors --ui bdd --reporter spec --recursive test/"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/branneman/current-processes/issues"
   },
-  "homepage": "https://github.com/branneman/current-processes"
+  "homepage": "https://github.com/branneman/current-processes",
+  "devDependencies": {
+    "mocha": "^1.20.1"
+  }
 }
