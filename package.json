@@ -1,0 +1,25 @@
+{
+  "name": "current-processes",
+  "version": "0.1.0",
+  "description": "Get a snapshot of the currently running processes, OS-agnostic",
+  "main": "current-processes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/branneman/current-processes.git"
+  },
+  "keywords": [
+    "ps",
+    "processes",
+    "os",
+    "tasklist"
+  ],
+  "author": "Bran van der Meer <branmovic@gmail.com> (http://bran.name/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/branneman/current-processes/issues"
+  },
+  "homepage": "https://github.com/branneman/current-processes"
+}
