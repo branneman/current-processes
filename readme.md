@@ -6,9 +6,7 @@ Get a snapshot of the currently running processes, OS-agnostic
 const ps = require('./current-processes');
 
 ps.get(function(err, processes) {
-    processes.forEach(function(proc) {
-        console.log(proc.pid, proc.name, proc.mem);
-    })
+    console.log(processes);
 });
 ```
 
