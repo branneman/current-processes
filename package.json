@@ -22,6 +22,9 @@
     "url": "https://github.com/branneman/current-processes/issues"
   },
   "homepage": "https://github.com/branneman/current-processes",
+  "dependencies": {
+    "csv-parse": "0.0.4"
+  },
   "devDependencies": {
     "mocha": "^1.20.1"
   }
