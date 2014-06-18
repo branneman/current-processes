@@ -9,7 +9,7 @@ describe('Current Processes', function() {
     describe('Integration tests', function() {
 
         it('should not fail when require()\'d', function() {
-            CurrentProcesses = require('../current-processes.js');
+            CurrentProcesses = require('../../current-processes.js');
             assert(CurrentProcesses);
         });
 
