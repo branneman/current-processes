@@ -3,7 +3,7 @@ Get a snapshot of the currently running processes, OS-agnostic
 
 ## Usage
 ```js
-const ps = require('./current-processes');
+var ps = require('current-processes');
 
 ps.get(function(err, processes) {
     console.log(processes);
