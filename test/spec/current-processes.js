@@ -21,6 +21,9 @@ describe('Current Processes', function() {
 
     describe('Method get()', function() {
 
+        // WMIC can take a while to start up for the first time
+        this.timeout(15000);
+
         it('should return an array', function(done) {
 
             CurrentProcesses.get(function(err, processes) {
