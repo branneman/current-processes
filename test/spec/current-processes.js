@@ -1,6 +1,6 @@
 'use strict';
 
-var assert = require('assert');
+var assert = require('chai').assert;
 
 var CurrentProcesses;
 
@@ -89,7 +89,7 @@ describe('Current Processes', function() {
             });
         });
 
-        it('should include the process memory usage', function(done) {
+        it('should include the 3 types of process memory usage', function(done) {
 
             CurrentProcesses.get(function(err, processes) {
 
@@ -99,11 +99,10 @@ describe('Current Processes', function() {
                 }
 
                 processes.forEach(function(proc) {
-                    var isNumber = typeof proc.mem === 'number';
-                    assert(isNumber, 'Memory is not a number: ' + proc.mem);
-
-                    var isInt = proc.mem % 1 === 0;
-                    assert(isInt, 'Memory is not an integer: ' + proc.mem);
+                    assert.isObject(proc.mem, '`mem` is not an object');
+                    assert.isNumber(proc.mem.virtual, '`proc.mem.virtual` is not a number');
+                    assert.isNumber(proc.mem.private, '`proc.mem.private` is not a number');
+                    assert.isNumber(proc.mem.percentage, '`proc.mem.percentage` is not a number');
                 });
                 done();
             });
