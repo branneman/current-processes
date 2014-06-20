@@ -14,8 +14,7 @@ describe('Current Processes', function() {
         });
 
         it('should have a get() method', function() {
-            var isFunction = typeof CurrentProcesses.get === 'function';
-            assert(isFunction);
+            assert.isFunction(CurrentProcesses.get);
         });
     });
 
@@ -33,7 +32,7 @@ describe('Current Processes', function() {
                     return done();
                 }
 
-                assert(Array.isArray(processes));
+                assert.isArray(processes);
                 done();
             });
         });
@@ -62,9 +61,7 @@ describe('Current Processes', function() {
                 }
 
                 processes.forEach(function(proc) {
-                    var isNumber = typeof proc.pid === 'number';
-                    assert(isNumber, 'PID is not a number: ' + proc.pid);
-
+                    assert.isNumber(proc.pid);
                     var isInt = proc.pid % 1 === 0;
                     assert(isInt, 'PID is not an integer:' + proc.pid);
                 });
@@ -82,8 +79,7 @@ describe('Current Processes', function() {
                 }
 
                 processes.forEach(function(proc) {
-                    var isString = typeof proc.name === 'string';
-                    assert(isString);
+                    assert.isString(proc.name);
                 });
                 done();
             });
@@ -99,10 +95,26 @@ describe('Current Processes', function() {
                 }
 
                 processes.forEach(function(proc) {
-                    assert.isObject(proc.mem, '`mem` is not an object');
-                    assert.isNumber(proc.mem.virtual, '`proc.mem.virtual` is not a number');
-                    assert.isNumber(proc.mem.private, '`proc.mem.private` is not a number');
-                    assert.isNumber(proc.mem.percentage, '`proc.mem.percentage` is not a number');
+                    assert.isObject(proc.mem);
+                    assert.isNumber(proc.mem.virtual);
+                    assert.isNumber(proc.mem.private);
+                    assert.isNumber(proc.mem.percentage);
+                });
+                done();
+            });
+        });
+
+        it('should include the process cpu usage', function(done) {
+
+            CurrentProcesses.get(function(err, processes) {
+
+                if (err) {
+                    assert.fail(err);
+                    return done();
+                }
+
+                processes.forEach(function(proc) {
+                    assert.isNumber(proc.cpu);
                 });
                 done();
             });
