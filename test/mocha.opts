@@ -1,0 +1,5 @@
+--colors
+--ui bdd
+--reporter spec
+--recursive
+test/spec/
