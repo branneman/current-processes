@@ -123,8 +123,11 @@ describe('Current Processes', function() {
 
         it('should return an error if `ps` or `wmic` failed', function(done) {
 
+            // @todo Temporary hack to make this test realistic
+            var platform = (process.platform === 'freebsd' ? 'linux' : process.platform);
+
             // Stub child_process.exec() with a failing variant
-            var CurrentProcesses = rewire('../../lib/adapter/' + process.platform);
+            var CurrentProcesses = rewire('../../lib/adapter/' + platform);
             CurrentProcesses.__set__('exec', function(cmd, cb) {
                 setTimeout(function() {
                     cb('Fake error!');
