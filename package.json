@@ -11,25 +11,34 @@
     "type": "git",
     "url": "https://github.com/branneman/current-processes.git"
   },
-  "keywords": [
-    "ps",
-    "processes",
-    "os",
-    "tasklist"
-  ],
+  "dependencies": {
+    "csv-parse": "0.0.5"
+  },
+  "devDependencies": {
+    "jshint": "^2.5.1",
+    "mocha": "^1.20.1",
+    "chai": "^1.9.1",
+    "istanbul": "^0.2.11",
+    "rewire": "^2.0.1"
+  },
   "author": "Bran van der Meer <branmovic@gmail.com> (http://bran.name/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/branneman/current-processes/issues"
   },
   "homepage": "https://github.com/branneman/current-processes",
-  "dependencies": {
-    "csv-parse": "0.0.4"
-  },
-  "devDependencies": {
-    "chai": "^1.9.1",
-    "istanbul": "^0.2.11",
-    "jshint": "^2.5.1",
-    "mocha": "^1.20.1"
-  }
+  "keywords": [
+    "processes",
+    "os",
+    "cpu",
+    "memory",
+    "usage",
+    "tasks",
+    "tasklist",
+    "top",
+    "vtop",
+    "ps",
+    "wmi",
+    "wmic"
+  ]
 }
