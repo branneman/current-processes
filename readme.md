@@ -1,7 +1,29 @@
 # current-processes
-Get a snapshot of the currently running processes, OS-agnostic
+Node.js library to get a snapshot of the currently running processes, OS-agnostic. Needs root/Admin permissions.
 
-## Example
+**100% Code Coverage.** Run `npm test` to see for yourself.
+
+## Process object
+The library will return an array consisting of multiple process objects, structured like this:
+```js
+{
+    pid: 1337,              // Process ID
+    name: 'chrome',         // Executable filename
+    mem: {
+        private: 23054,     // Private memory, in bytes
+        virtual: 78923,     // Virtual memory (private + shared libraries + swap space), in bytes
+        usage: 0.02    	    // Used physical memory (%) by this process
+    },
+    cpu: 0.3                // CPU usage (%) as reported by `ps` and `wmic`
+}
+```
+
+## Platform-specific notes
+### Windows
+WMI (specifically `wmic`) is used to gather the information itself. WMI is fairly slow the first time it's called, it
+might even take up to 2-3 seconds. Make sure your app will gracefully handle this. Subsequent calls will be much faster.
+
+## Usage example
 ```js
 var _ = require('lodash');
 var ps = require('current-processes');
@@ -13,25 +35,4 @@ ps.get(function(err, processes) {
 
     console.log(top20);
 });
-```
-
-### Output
-```js
-[
-    { pid: 4432, name: 'chrome', mem: 78923, cpu: 34.8},
-    { pid: 3324, name: 'chrome', mem: 23054, cpu: 18},
-    { pid: 1, name: 'init', mem: 33753, cpu: 0},
-    { pid: 2765, name: 'httpd', mem: 23097, cpu: 0}
-]
-```
-
-## Tests
-### Mocha
-```
-npm test
-```
-
-### JSHint
-```
-jshint . --exclude-path=.gitignore
 ```
