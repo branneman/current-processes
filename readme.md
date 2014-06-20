@@ -7,14 +7,14 @@ Node.js library to get a snapshot of the currently running processes, OS-agnosti
 The library will return an array consisting of multiple process objects, structured like this:
 ```js
 {
-    pid: 1337,              // Process ID
-    name: 'chrome',         // Executable filename
+    pid: 1337,               // Process ID
+    name: 'chrome',          // Process name
     mem: {
-        private: 23054,     // Private memory, in bytes
-        virtual: 78923,     // Virtual memory (private + shared libraries + swap space), in bytes
-        usage: 0.02    	    // Used physical memory (%) by this process
+        private: 23054560,   // Private memory, in bytes
+        virtual: 78923608,   // Virtual memory (private + shared libraries + swap space), in bytes
+        usage: 0.02    	     // Used physical memory (%) by this process
     },
-    cpu: 0.3                // CPU usage (%) as reported by `ps` and `wmic`
+    cpu: 0.3                 // CPU usage (%) as reported by `ps` and `wmic`
 }
 ```
 
