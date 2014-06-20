@@ -24,3 +24,14 @@ ps.get(function(err, processes) {
     { pid: 2765, name: 'httpd', mem: 23097, cpu: 0}
 ]
 ```
+
+## Tests
+### Mocha
+```
+npm test
+```
+
+### JSHint
+```
+jshint . --exclude-path=.gitignore
+```
