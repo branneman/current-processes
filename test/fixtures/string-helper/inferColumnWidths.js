@@ -155,5 +155,37 @@ module.exports = [
             { start: 13, length: 6 },
             { start: 20, length: undefined }
         ]
+    },
+    {
+        columns: [
+            {
+                query: 'PID',
+                align: 'right'
+            },
+            {
+                query: 'RSS',
+                align: 'right'
+            },
+            {
+                query: 'VSZ',
+                align: 'right'
+            },
+            {
+                query: '%CPU',
+                align: 'right'
+            },
+            {
+                query: 'COMMAND',
+                align: 'left'
+            }
+        ],
+        string: ' PID      RSS   VSZ  %CPU COMMAND',
+        expect: [
+            { start: 0,  length: 4 },
+            { start: 4,  length: 9 },
+            { start: 13, length: 6 },
+            { start: 19, length: 6 },
+            { start: 26, length: undefined }
+        ]
     }
 ];
