@@ -85,8 +85,9 @@ describe('StringHelper', function() {
                     var errMsg = 'At fixture ' + fixtureIndex + ', column ' + fixture.columns[columnIndex].query + ': ';
                     var getValue = ', getValue() would return \'' + result[columnIndex].getValue(fixture.string) + '\'';
 
-                    assert.equal(result[columnIndex].pos.start,  expect.start,  errMsg + 'incorrect `start`' + getValue);
-                    assert.equal(result[columnIndex].pos.length, expect.length, errMsg + 'incorrect `length`' + getValue);
+                    var pos = result[columnIndex].pos;
+                    assert.equal(pos.start,  expect.start,  errMsg + 'incorrect `start`' + getValue);
+                    assert.equal(pos.length, expect.length, errMsg + 'incorrect `length`' + getValue);
                 });
             });
         });
