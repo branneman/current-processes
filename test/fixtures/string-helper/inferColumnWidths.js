@@ -1,4 +1,4 @@
-module.exports = [
+module.exports.correct = [
     {
         columns: [
             {
@@ -187,5 +187,38 @@ module.exports = [
             { start: 19, length: 6 },
             { start: 26, length: undefined }
         ]
+    }
+];
+
+module.exports.incorrect = [
+    {
+        columns: [
+            {
+                query: 'PID',
+                align: 'middle'
+            },
+            {
+                query: 'COMMAND',
+                align: 'left'
+            }
+        ],
+        string: '  PID COMMAND'
+    },
+    {
+        columns: [
+            {
+                query: 'PID',
+                align: 'right'
+            },
+            {
+                query: 'PID',
+                align: 'middle'
+            },
+            {
+                query: 'COMMAND',
+                align: 'left'
+            }
+        ],
+        string: '  PID   VSZ   COMMAND'
     }
 ];

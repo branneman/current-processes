@@ -46,8 +46,8 @@ describe('StringHelper', function() {
 
         it('should augment the columns with a pos{start,length} object', function() {
 
-            var string  = fixtures[0].string;
-            var columns = fixtures[0].columns;
+            var string  = fixtures.correct[0].string;
+            var columns = fixtures.correct[0].columns;
 
             var result = StringHelper.inferColumnWidths(columns, string);
 
@@ -64,8 +64,8 @@ describe('StringHelper', function() {
 
         it('should augment the columns with a getValue() method', function() {
 
-            var string = fixtures[1].string;
-            var columns = fixtures[1].columns;
+            var string = fixtures.correct[1].string;
+            var columns = fixtures.correct[1].columns;
 
             var result = StringHelper.inferColumnWidths(columns, string);
 
@@ -76,7 +76,7 @@ describe('StringHelper', function() {
 
         it('should return the right position values', function() {
 
-            fixtures.forEach(function(fixture, fixtureIndex) {
+            fixtures.correct.forEach(function(fixture, fixtureIndex) {
 
                 var result = StringHelper.inferColumnWidths(fixture.columns, fixture.string);
 
@@ -89,6 +89,16 @@ describe('StringHelper', function() {
                     assert.equal(pos.start,  expect.start,  errMsg + 'incorrect `start`' + getValue);
                     assert.equal(pos.length, expect.length, errMsg + 'incorrect `length`' + getValue);
                 });
+            });
+        });
+
+        it('should throw when passed unsupported values', function() {
+
+            fixtures.incorrect.forEach(function(fixture) {
+
+                var fn = StringHelper.inferColumnWidths.bind({}, fixture.columns, fixture.string);
+
+                assert.throw(fn);
             });
         });
     });
