@@ -97,9 +97,9 @@ describe('Current Processes', function() {
 
                 processes.forEach(function(proc) {
                     assert.isObject(proc.mem);
-                    assert.isNumber(proc.mem.virtual);
                     assert.isNumber(proc.mem.private);
-                    assert.isNumber(proc.mem.percentage);
+                    assert.isNumber(proc.mem.virtual);
+                    assert.isNumber(proc.mem.usage);
                 });
                 done();
             });
