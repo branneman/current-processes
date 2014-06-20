@@ -1,6 +1,7 @@
 'use strict';
 
 var assert = require('chai').assert;
+var rewire = require('rewire');
 
 var CurrentProcesses;
 
@@ -9,7 +10,7 @@ describe('Current Processes', function() {
     describe('Integration tests', function() {
 
         it('should not fail when require()\'d', function() {
-            CurrentProcesses = require('../../current-processes.js');
+            CurrentProcesses = require('../../current-processes');
             assert(CurrentProcesses);
         });
 
@@ -116,6 +117,23 @@ describe('Current Processes', function() {
                 processes.forEach(function(proc) {
                     assert.isNumber(proc.cpu);
                 });
+                done();
+            });
+        });
+
+        it('should return an error if `ps` or `wmic` failed', function(done) {
+
+            // Stub child_process.exec() with a failing variant
+            var CurrentProcesses = rewire('../../lib/adapter/' + process.platform);
+            CurrentProcesses.__set__('exec', function(cmd, cb) {
+                setTimeout(function() {
+                    cb('Fake error!');
+                }, 100);
+            });
+
+            CurrentProcesses.get(function(err, processes) {
+                assert.isString(err);
+                assert.isUndefined(processes);
                 done();
             });
         });
