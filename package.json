@@ -12,6 +12,7 @@
     "url": "https://github.com/branneman/current-processes.git"
   },
   "dependencies": {
+    "async": "^0.9.0",
     "csv-parse": "0.0.5"
   },
   "devDependencies": {
