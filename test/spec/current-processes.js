@@ -7,7 +7,7 @@ var CurrentProcesses;
 
 describe('Current Processes', function() {
 
-    describe('Integration tests', function() {
+    describe('Exports', function() {
 
         it('should not fail when require()\'d', function() {
             CurrentProcesses = require('../../current-processes');
@@ -121,7 +121,7 @@ describe('Current Processes', function() {
             });
         });
 
-        it('should return an error if `ps` or `wmic` failed', function(done) {
+        xit('should return an error if `ps` or `wmic` failed', function(done) {
 
             // @todo Temporary hack to make this test realistic
             var platform = (process.platform === 'freebsd' ? 'linux' : process.platform);
