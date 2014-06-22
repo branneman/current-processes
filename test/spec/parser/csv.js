@@ -59,7 +59,7 @@ describe('Parser - CSV', function() {
         });
     });
 
-    it('should generate a numeric PID', function(done) {
+    it('should generate a PID', function(done) {
 
         var parserCSV = require('../../../lib/parser/csv');
         var data =
@@ -70,7 +70,6 @@ describe('Parser - CSV', function() {
         parserCSV(data, function(err, processes) {
 
             assert.lengthOf(processes, 1);
-            assert.isNumber(processes[0].pid);
             assert.equal(processes[0].pid, 3308);
             done();
         });
@@ -109,7 +108,7 @@ describe('Parser - CSV', function() {
         });
     });
 
-    it('should generate a numeric cpu', function(done) {
+    it('should generate a cpu', function(done) {
 
         var parserCSV = require('../../../lib/parser/csv');
         var data =
@@ -120,13 +119,12 @@ describe('Parser - CSV', function() {
         parserCSV(data, function(err, processes) {
 
             assert.lengthOf(processes, 1);
-            assert.isNumber(processes[0].cpu);
             assert.equal(processes[0].cpu, 25);
             done();
         });
     });
 
-    it('should generate a numeric pmem', function(done) {
+    it('should generate a pmem', function(done) {
 
         var parserCSV = require('../../../lib/parser/csv');
         var data =
@@ -137,13 +135,12 @@ describe('Parser - CSV', function() {
         parserCSV(data, function(err, processes) {
 
             assert.lengthOf(processes, 1);
-            assert.isNumber(processes[0].pmem);
             assert.equal(processes[0].pmem, 126222336);
             done();
         });
     });
 
-    it('should generate a numeric vmem', function(done) {
+    it('should generate a vmem', function(done) {
 
         var parserCSV = require('../../../lib/parser/csv');
         var data =
@@ -154,7 +151,6 @@ describe('Parser - CSV', function() {
         parserCSV(data, function(err, processes) {
 
             assert.lengthOf(processes, 1);
-            assert.isNumber(processes[0].vmem);
             assert.equal(processes[0].vmem, 419917824);
             done();
         });
