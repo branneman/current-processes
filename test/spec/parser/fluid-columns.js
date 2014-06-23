@@ -4,7 +4,7 @@ var os     = require('os');
 var assert = require('chai').assert;
 var rewire = require('rewire');
 
-describe.only('Parser - FluidColumns', function() {
+describe('Parser - FluidColumns', function() {
 
     it('should not fail when require()\'d', function() {
 
