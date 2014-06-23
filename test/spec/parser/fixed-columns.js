@@ -164,7 +164,7 @@ describe('Parser - FixedColumns', function() {
         });
     });
 
-    describe('_trimNewlines', function() {
+    describe('_trimNewlines()', function() {
 
         var parserFixedColumns = rewire('../../../lib/parser/fixed-columns');
         var _trimNewlines = parserFixedColumns.__get__('_trimNewlines');
