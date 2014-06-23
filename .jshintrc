@@ -80,5 +80,5 @@
     "white"         : false,     // true: Check against strict whitespace and indentation rules
 
     // Custom Globals - additional predefined global variables
-    "predef"        : ["define", "require", "describe", "it", "xdescribe", "xit"]
+    "predef"        : ["describe", "it", "xdescribe", "xit"]
 }
