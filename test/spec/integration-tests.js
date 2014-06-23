@@ -1,22 +1,18 @@
 'use strict';
 
 var assert = require('chai').assert;
-var rewire = require('rewire');
 
 var CurrentProcesses;
 
-describe('Current Processes', function() {
+describe('Integration tests (for current platform)', function() {
 
-    describe('Exports', function() {
+    it('should not fail when require()\'d', function() {
+        CurrentProcesses = require('../../current-processes');
+        assert(CurrentProcesses);
+    });
 
-        it('should not fail when require()\'d', function() {
-            CurrentProcesses = require('../../current-processes');
-            assert(CurrentProcesses);
-        });
-
-        it('should have a get() method', function() {
-            assert.isFunction(CurrentProcesses.get);
-        });
+    it('should have a get() method', function() {
+        assert.isFunction(CurrentProcesses.get);
     });
 
     describe('Method get()', function() {
@@ -117,26 +113,6 @@ describe('Current Processes', function() {
                 processes.forEach(function(proc) {
                     assert.isNumber(proc.cpu);
                 });
-                done();
-            });
-        });
-
-        xit('should return an error if `ps` or `wmic` failed', function(done) {
-
-            // @todo Temporary hack to make this test realistic
-            var platform = (process.platform === 'freebsd' ? 'linux' : process.platform);
-
-            // Stub child_process.exec() with a failing variant
-            var CurrentProcesses = rewire('../../lib/adapter/' + platform);
-            CurrentProcesses.__set__('exec', function(cmd, cb) {
-                setTimeout(function() {
-                    cb('Fake error!');
-                }, 100);
-            });
-
-            CurrentProcesses.get(function(err, processes) {
-                assert.isString(err);
-                assert.isUndefined(processes);
                 done();
             });
         });
