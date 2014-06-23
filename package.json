@@ -5,7 +5,8 @@
   "main": "current-processes.js",
   "scripts": {
     "pretest": "node node_modules/jshint/bin/jshint .",
-    "test": "node node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha"
+    "test": "node node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha",
+    "posttest": "node test/run-coveralls coverage/lcov.info node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,9 @@
     "jshint": "^2.5.1",
     "mocha": "^1.20.1",
     "chai": "^1.9.1",
+    "rewire": "^2.0.1",
     "istanbul": "^0.2.11",
-    "rewire": "^2.0.1"
+    "coveralls": "^2.10.1"
   },
   "author": "Bran van der Meer <branmovic@gmail.com> (http://bran.name/)",
   "license": "MIT",
