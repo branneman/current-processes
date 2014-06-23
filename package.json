@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "node node_modules/jshint/bin/jshint .",
     "test": "node node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha",
-    "posttest": "node test/run-coveralls coverage/lcov.info node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "node test/run-coveralls coverage/lcov.info node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
