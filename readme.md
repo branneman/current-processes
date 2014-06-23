@@ -1,7 +1,7 @@
 # current-processes
 Node.js library to get a snapshot of the currently running processes, OS-agnostic. Needs root/Admin permissions.
 
-[![Build Status](https://travis-ci.org/branneman/current-processes.svg?branch=adapter-refactoring)](https://travis-ci.org/branneman/current-processes)
+[![Build Status](https://travis-ci.org/branneman/current-processes.svg?branch=master)](https://travis-ci.org/branneman/current-processes)
 
 ## Process object
 The library will return an array consisting of multiple process objects, structured like this:
