@@ -1,6 +1,7 @@
 # current-processes
 [![Build Status](https://travis-ci.org/branneman/current-processes.svg?branch=master)](https://travis-ci.org/branneman/current-processes)
 [![Coverage Status](https://img.shields.io/coveralls/branneman/current-processes.svg)](https://coveralls.io/r/branneman/current-processes)
+![Dependency Status](http://img.shields.io/david/branneman/current-processes.svg)
 
 Node.js library to get a snapshot of the currently running processes, OS-agnostic. Needs root/Admin permissions.
 
