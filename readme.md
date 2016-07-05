@@ -9,13 +9,13 @@ Node.js library to get a snapshot of the currently running processes, OS-agnosti
 
 ## Usage example
 ```js
-var _ = require('lodash');
-var ps = require('current-processes');
+import _ from 'lodash';
+import ps from 'current-processes';
 
-ps.get(function(err, processes) {
+ps.get((err, processes) => {
 
-    var sorted = _.sortBy(processes, 'cpu');
-    var top5  = sorted.reverse().splice(0, 5);
+    const sorted = _.sortBy(processes, 'cpu');
+    const top5  = sorted.reverse().splice(0, 5);
 
     console.log(top5);
 });
