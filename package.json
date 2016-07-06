@@ -13,16 +13,16 @@
     "url": "https://github.com/branneman/current-processes.git"
   },
   "dependencies": {
-    "async": "^0.9.0",
-    "csv-parse": "0.0.5"
+    "async": "^2.0.0-rc.6",
+    "csv-parse": "1.1.1"
   },
   "devDependencies": {
-    "jshint": "^2.5.1",
-    "mocha": "^1.20.1",
-    "chai": "^1.9.1",
-    "rewire": "^2.0.1",
-    "istanbul": "^0.2.11",
-    "coveralls": "^2.10.1"
+    "jshint": "^2.9.2",
+    "mocha": "^2.5.3",
+    "chai": "^3.5.0",
+    "rewire": "^2.5.2",
+    "istanbul": "^0.4.4",
+    "coveralls": "^2.11.9"
   },
   "author": "Bran van der Meer <branmovic@gmail.com> (http://bran.name/)",
   "license": "MIT",
